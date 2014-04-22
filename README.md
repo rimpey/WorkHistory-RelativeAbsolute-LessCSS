@@ -1,9 +1,9 @@
 WorkHistory-RelativeAbsolute-LessCSS
 ====================================
 
-Graphical representation of my work history and education.
+Graphical representation of work history and education.
 
-This is part of a wider project, my website, and explores relative and absolute positioning along with Less CSS for 
+This is part of a wider project, a website, and explores relative and absolute positioning along with Less CSS for 
 styling. The idea being to graphically present my work and education in summary form associated with timeframe, 
 further details are available upon a hover event. Less CSS is used and specificity touched upon in the context
 of this project.
