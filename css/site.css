@@ -1,0 +1,528 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* variables containing colour, unit of time per px and width of short and long employment and education block */
+body {
+  /* to compensate for arrow img in slider creating horizontal scroll bar when pushed out */
+
+  overflow-x: hidden;
+}
+/* Work Education History */
+/* using a CSSLess function here to create an education/employment block */
+#workeducyear {
+  position: relative;
+}
+#year {
+  position: absolute;
+  top: 0;
+  border: 1px solid #ffffff;
+  width: 10%;
+}
+#year p {
+  height: 72px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-right: 2px solid #ccc;
+  /* calls CSSLess function passing parameters */
+
+  width: 100%;
+  background-color: #626470;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+  line-height: 72px;
+}
+#workeduc {
+  position: relative;
+  left: 10%;
+  width: 90%;
+  /* classes contained within id workeduc */
+
+}
+#workeduc div {
+  border: 1px solid #ccc;
+  border-right: 2px solid #ccc;
+  position: relative;
+  /* assign psuedo-class :hover to the selector using ampersand */
+
+}
+#workeduc div:hover {
+  /* referring to the immediate child selector called aside */
+
+}
+#workeduc div:hover > aside {
+  display: block;
+}
+#workeduc p {
+  color: #ffffff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.0em;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+#workeduc .worktitle,
+#workeduc .worktitleright {
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 1%;
+}
+#workeduc aside {
+  /* not to be displayed until the user hovers over the block for further details */
+
+  display: none;
+  /* fixed width of an aside to be modified later for responsive design */
+
+  width: 465px;
+  /* position absolute to block hovering over */
+
+  position: absolute;
+  /* aside always displayed on the screen positioned it's width from the right */
+
+  right: -468px;
+  top: 0;
+  /* before is the triangle to the left of the aside */
+
+}
+#workeduc aside:before {
+  /* content empty is important to set and if too large check font size of empty block */
+
+  content: "";
+  /* border top, right, bottom, left of zero creates the triange shape */
+
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #aaa;
+  border-style: solid;
+  /* position absolute to block workeduc positioned relative */
+
+  position: absolute;
+  /* align so that triange starts a little from the top of the aside details box */
+
+  top: 8px;
+  /* the triange needs to be left of the aside box to display */
+
+  left: -15px;
+}
+#workeduc aside div {
+  clear: none;
+  width: 450px;
+  background-color: #aaaaaa;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+  border: none;
+  padding: 6px 3px;
+  /* nice effect copied over */
+
+  box-shadow: 4px 4px 4px #555;
+}
+#workeduc aside code {
+  font-family: monospace;
+  padding: 5px;
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #333;
+}
+#workeduc aside code strong {
+  font-weight: bold;
+}
+#workeduc aside p {
+  color: #333;
+}
+#workeduc #worksubflow {
+  position: relative;
+  top: -36px;
+  border: none;
+}
+#workeduc #seeking {
+  /* 6mths */
+
+  height: 36px;
+  width: 720px;
+  background-color: #4a6f8e;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+  border-top: 2px solid #ccc;
+}
+#msc {
+  /* 3yrs */
+
+  height: 216px;
+  width: 720px;
+  background-color: #547ea4;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#workeduc #certed {
+  /* 2yrs */
+
+  height: 144px;
+  position: absolute;
+  /* include gap between end certed (Sept 2008) to start msc (Sept 2010) */
+
+  /* height (seeking) 36px + (msc) 216px  + 2 year gap between qualifications */
+
+  top: 396px;
+  text-align: right;
+  width: 720px;
+  background-color: #547ea4;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+/* separate flow */
+#worksubflow #lecturer {
+  /* 2yrs 1mth*/
+
+  height: 150px;
+  width: 500px;
+  background-color: #be6d45;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+  border-top: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+}
+#worksubflow #kbr {
+  /* 1yr 5mths */
+
+  height: 102px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+  border-right: 2px solid #ccc;
+}
+#worksubflow #torex {
+  /* 2yrs 9mths */
+
+  height: 198px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+  border-right: 2px solid #ccc;
+}
+#matchtech {
+  /* 9mths */
+
+  height: 54px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#turners {
+  /* 2yrs 1mth */
+
+  height: 150px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#immigrate {
+  /* 6mths */
+
+  height: 36px;
+  width: 500px;
+  background-color: #4a6f8e;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#blacketer {
+  /* 7mths */
+
+  height: 42px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#time {
+  /* 1yr */
+
+  height: 72px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#nspace {
+  /* 8mths */
+
+  height: 48px;
+  width: 500px;
+  background-color: #ad4448;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
+#bachelors {
+  /* 2yrs */
+
+  height: 156px;
+  width: 500px;
+  background-color: #547ea4;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  /* forces browser to place border and padding inside the box */
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /* collapse borders to a single border where double borders have been created */
+
+  border-collapse: collapse;
+}
