@@ -1,0 +1,255 @@
+@import "reset.less";
+
+/* variables containing colour, unit of time per px and width of short and long employment and education block */
+
+@teal: #4A6F8E;
+@pink: #AD4448;
+@blue: #547EA4;
+@orange: #BE6D45;
+@greyyear: #626470; 
+@white: #FFFFFF;
+
+@colourtransition: @teal;
+@colourdegree: @blue;
+@colourindustry: @pink;
+@colourlecturing: @orange;
+
+@monthUnit: 6px;
+@yearUnit: 72px;
+@workwidthlong: 720px;
+@workwidthshort: 500px;
+
+@slideText: 'Source Sans Pro', sans-serif;
+
+body {
+    /* to compensate for arrow img in slider creating horizontal scroll bar when pushed out */
+    overflow-x: hidden;
+}
+
+/* Work Education History */
+
+/* using a CSSLess function here to create an education/employment block */
+.roundedbox(@width, @bgcolour) {
+    width: @width;
+    background-color: @bgcolour;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    /* forces browser to place border and padding inside the box */
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* collapse borders to a single border where double borders have been created */
+    border-collapse: collapse;
+}
+
+#workeducyear {
+    position: relative;
+}
+
+#year {
+    position: absolute;
+    top: 0;
+    border: 1px solid @white;
+    width: 10%;
+
+    p {
+        height: @yearUnit;
+        font-family: 'Source Sans Pro', sans-serif;
+        color: @white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.2em;
+        border: 1px solid #ccc;
+        border-right: 2px solid #ccc;
+        /* calls CSSLess function passing parameters */
+        .roundedbox(100%, @greyyear);
+        line-height: @yearUnit;
+    }
+}
+
+#workeduc {
+    position: relative;
+    left: 10%;
+    width: 90%;
+
+    div {
+        border: 1px solid #ccc;
+        border-right: 2px solid #ccc;
+        position: relative;
+
+        /* assign psuedo-class :hover to the selector using ampersand */
+        &:hover {
+            /* referring to the immediate child selector called aside */
+            & > aside {
+                display: block;
+            }
+        }
+    }
+
+    p {
+        color: @white;
+        font-family: @slideText;
+        font-size: 1.0em;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+
+    /* classes contained within id workeduc */
+    .worktitle, .worktitleright {
+        font-weight: bold;
+        font-size: 1.2em;
+        padding: 1%;
+    }
+
+    aside {
+        /* not to be displayed until the user hovers over the block for further details */
+        display: none;
+        /* fixed width of an aside to be modified later for responsive design */
+        width: 465px;
+        /* position absolute to block hovering over */
+        position: absolute;
+        /* aside always displayed on the screen positioned it's width from the right */
+        right: -468px;
+        top: 0;
+
+        /* before is the triangle to the left of the aside */
+        &:before {
+            /* content empty is important to set and if too large check font size of empty block */
+            content: "";
+            /* border top, right, bottom, left of zero creates the triange shape */
+            border-width: 10px 15px 10px 0;
+            border-color: transparent #aaa;
+            border-style: solid;
+            /* position absolute to block workeduc positioned relative */
+            position: absolute;
+            /* align so that triange starts a little from the top of the aside details box */
+            top: 8px;
+            /* the triange needs to be left of the aside box to display */
+            left: -15px;
+        }
+
+        div {
+            clear: none;
+            .roundedbox(450px, #aaa);
+            border: none;
+            padding: 6px 3px;
+            /* nice effect copied over */
+            box-shadow: 4px 4px 4px #555;
+        }
+
+        code {
+            font-family: monospace;
+            padding: 5px;
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #333;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+
+        p {
+            color: #333;
+        }
+    }
+}
+//specificity required both id's in order for border to be none vs. #workeduction div [id/tag]
+#workeduc #worksubflow {
+    position: relative;
+    //overlap of 6mths lec msc
+    top: -36px;
+    border: none;
+}
+
+#workeduc #seeking {
+    /* 6mths */
+    height: 6 * @monthUnit;
+    .roundedbox(@workwidthlong, @colourtransition);
+    border-top: 2px solid #ccc;
+}
+
+#msc {
+    /* 3yrs */
+    height: @yearUnit * 3;
+    .roundedbox(@workwidthlong, @colourdegree);
+}
+
+#workeduc #certed {
+    /* 2yrs */
+    height: @yearUnit * 2;
+    position: absolute;
+    /* include gap between end certed (Sept 2008) to start msc (Sept 2010) */
+    /* height (seeking) 36px + (msc) 216px  + 2 year gap between qualifications */
+    top: (@monthUnit * 6) + (@yearUnit * 3) + (@yearUnit * 2);
+    text-align: right;
+    .roundedbox(@workwidthlong, @colourdegree);
+}
+/* separate flow */
+#worksubflow #lecturer {
+    /* 2yrs 1mth*/
+    height: @yearUnit * 2 + @monthUnit;
+    .roundedbox(@workwidthshort, @colourlecturing);
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+}
+
+#worksubflow #kbr {
+    /* 1yr 5mths */
+    height: @yearUnit + (@monthUnit * 5);
+    .roundedbox(@workwidthshort, @colourindustry);
+    border-right: 2px solid #ccc;
+}
+
+#worksubflow #torex {
+    /* 2yrs 9mths */
+    height: (@yearUnit * 2) + (@monthUnit * 9);
+    .roundedbox(@workwidthshort, @colourindustry);
+    border-right: 2px solid #ccc;
+}
+
+#matchtech {
+    /* 9mths */
+    height: @monthUnit * 9;
+    .roundedbox(@workwidthshort, @colourindustry);
+}
+
+#turners {
+    /* 2yrs 1mth */
+    height: (@yearUnit * 2) + @monthUnit;
+    .roundedbox(@workwidthshort, @colourindustry);
+}
+
+#immigrate {
+    /* 6mths */
+    height: @monthUnit * 6;
+    .roundedbox(@workwidthshort, @colourtransition);
+}
+
+#blacketer {
+    /* 7mths */
+    height: @monthUnit * 7;
+    .roundedbox(@workwidthshort, @colourindustry);
+}
+
+#time {
+    /* 1yr */
+    height: @yearUnit;
+    .roundedbox(@workwidthshort, @colourindustry);
+}
+
+#nspace {
+    /* 8mths */
+    height: @monthUnit * 8;
+    .roundedbox(@workwidthshort, @colourindustry);
+}
+
+#bachelors {
+    /* 2yrs */
+    height: @yearUnit * 2 + @monthUnit * 2;
+    .roundedbox(@workwidthshort, @colourdegree);
+}
+
+
