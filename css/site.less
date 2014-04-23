@@ -156,7 +156,10 @@ body {
         }
     }
 }
-//specificity required both id's in order for border to be none vs. #workeduction div [id/tag]
+/* specificity required both id's in order for border to be none vs. #workeduc div [id/tag] */
+/* http://css-tricks.com/specifics-on-css-specificity/ */
+
+/* 0,2,0,0 for border to take effect */
 #workeduc #worksubflow {
     position: relative;
     //overlap of 6mths lec msc
@@ -164,6 +167,7 @@ body {
     border: none;
 }
 
+/* 0,2,0,0 increase thickness of border */
 #workeduc #seeking {
     /* 6mths */
     height: 6 * @monthUnit;
@@ -177,6 +181,10 @@ body {
     .roundedbox(@workwidthlong, @colourdegree);
 }
 
+/* 0,2,0,0 so that absolute position is applied otherwise gap between workeduc and worksubflow appears 
+   div's inside workeduc are set to relative position this needs to be overridden - so hook needs to be more specific 
+   certed is set absolute inside relative container workeduc */
+
 #workeduc #certed {
     /* 2yrs */
     height: @yearUnit * 2;
@@ -188,6 +196,8 @@ body {
     .roundedbox(@workwidthlong, @colourdegree);
 }
 /* separate flow */
+
+/* 0,2,0,0 increase thickness of border */
 #worksubflow #lecturer {
     /* 2yrs 1mth*/
     height: @yearUnit * 2 + @monthUnit;
@@ -210,6 +220,7 @@ body {
     border-right: 2px solid #ccc;
 }
 
+/* double border appears where two workeduc blocks meet therefore no need to increase thickness of border */
 #matchtech {
     /* 9mths */
     height: @monthUnit * 9;
