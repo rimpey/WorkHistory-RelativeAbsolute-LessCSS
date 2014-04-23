@@ -109,7 +109,10 @@ body {
         width: 465px;
         /* position absolute to block hovering over */
         position: absolute;
-        /* aside always displayed on the screen positioned it's width from the right */
+        /* right of the aside positioned right of the relative parent by width + gap of aside 
+           position of parent from: top, right, bottom, left to: middle moves in +ve direction 
+           out from the centre is -ve direction */
+        /* have to use right rather than left as each box is a different width */
         right: -468px;
         top: 0;
 
