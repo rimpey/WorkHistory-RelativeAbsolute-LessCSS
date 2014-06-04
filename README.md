@@ -1,3 +1,6 @@
+![alt text](http://docs.rhondaimpey.com/img/workhistory.jpg "Work History")
+
+
 WorkHistory-RelativeAbsolute-LessCSS
 ====================================
 
